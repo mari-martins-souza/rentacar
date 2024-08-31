@@ -1,0 +1,28 @@
+.footer-container {
+    background-color: #ffc5c1;
+    height: 75px;
+    margin-top: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: #2a1e1e;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #2a1e1e;
+}
+
+a:hover {
+    color: #b45e9a;
+}

@@ -1,0 +1,46 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;    
+}
+
+.card-content {
+    background: #f99fa9;
+    border: solid 3px #aa6581;
+    border-radius: 4px;
+    width: 250px;
+    height: 370px;
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-family: "SUSE", sans-serif;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    color: #342220;
+}
+
+.card-content img {
+    width: 200px;
+    border-radius: 4px;
+    border: solid 2px #342220;
+    display: block;
+    margin: 0 auto;
+}
+
+.card-content p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #342220;
+}
+
+app-button-detail {
+    display: flex;
+    justify-content: center;
+}

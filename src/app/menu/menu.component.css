@@ -1,0 +1,40 @@
+.menu-container {
+    background: #ffc5c1;
+    width: 100%;
+    color: #2a1e1e;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    align-items: end;
+    margin-right: 40px;
+    text-transform: uppercase;
+    font-family: "SUSE", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+nav h1 {
+    font-family: "Nerko One", cursive;
+    margin-left: 50px;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+nav ul li:hover {
+    color: #b45e9a;
+}
