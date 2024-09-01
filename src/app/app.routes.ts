@@ -6,9 +6,9 @@ export const routes: Routes = [
     { path: 'lista-de-carros', component: CarListComponent },
     { path: '', redirectTo: '/lista-de-carros', pathMatch: 'full' },
     {
-        path: 'carro',
+        path: 'lista-de-carros',
         children: [
-            { path: 'id', component: CarDetailComponent }
+            { path: ':id', component: CarDetailComponent }
         ]
     }
 ];

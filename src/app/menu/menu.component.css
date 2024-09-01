@@ -1,5 +1,5 @@
 .menu-container {
-    background: #ffc5c1;
+    background: #ffc219;
     width: 100%;
     color: #2a1e1e;
 }
@@ -36,5 +36,5 @@ nav ul li {
 }
 
 nav ul li:hover {
-    color: #b45e9a;
+    color: #003c42;
 }

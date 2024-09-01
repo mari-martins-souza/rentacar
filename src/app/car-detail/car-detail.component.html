@@ -1,1 +1,18 @@
-<p>car-detail works!</p>
+<app-menu></app-menu>
+<div class="detail-container">
+    <div *ngFor="let carro of carrosLista" class="car-detail">
+        <div class="content">
+            <h3>Modelo: {{ carro.modelo }}</h3>
+            <img [src]="carro.imagem">
+            <p>Valor da diária: R$ {{ carro.precoPorDia }}</p>
+            <p>Ano: {{ carro.ano | dateTransform }}</p>
+            <p>Tipo: {{ carro.tipoDoModelo }}</p>
+            <p>Descrição do veículo: {{ carro.descricao }}</p>
+            <div class="rent-btn">
+                <button>Alugar</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
