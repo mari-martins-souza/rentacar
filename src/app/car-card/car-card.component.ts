@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { DateTransformPipe } from '../pipes/date-transform.pipe';
 import { Router, RouterModule } from '@angular/router';
+import { DotToCommaPipe } from '../pipes/dot-to-comma.pipe';
 
 @Component({
   selector: 'app-car-card',
   standalone: true,
-  imports: [ButtonDetailComponent, HttpClientModule, CommonModule, DateTransformPipe, RouterModule], 
+  imports: [ButtonDetailComponent, HttpClientModule, CommonModule, DateTransformPipe, RouterModule, DotToCommaPipe], 
   providers: [CarService],
   templateUrl: './car-card.component.html',
   styleUrl: './car-card.component.css'

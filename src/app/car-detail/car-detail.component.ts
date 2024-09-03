@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { DateTransformPipe } from "../pipes/date-transform.pipe";
 import { MenuComponent } from "../menu/menu.component";
 import { FooterComponent } from "../footer/footer.component";
+import { DotToCommaPipe } from '../pipes/dot-to-comma.pipe';
 
 @Component({
   selector: 'app-car-detail',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, DateTransformPipe, MenuComponent, FooterComponent],
+  imports: [HttpClientModule, CommonModule, DateTransformPipe, MenuComponent, FooterComponent, DotToCommaPipe],
   providers: [CarService],
   templateUrl: './car-detail.component.html',
   styleUrl: './car-detail.component.css'

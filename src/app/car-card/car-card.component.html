@@ -3,7 +3,7 @@
         <div class="card-content">
             <h3>Modelo: {{ carro.modelo }}</h3>
             <img [src]="carro.imagem">
-            <p>Valor da diária: R$ {{ carro.precoPorDia }}</p>
+            <p>Valor da diária: R$ {{ carro.precoPorDia | dotToComma }}</p>
             <p>Ano: {{ carro.ano | dateTransform }}</p>
             <app-button-detail (click)="carDetail(carro.id)"></app-button-detail>
         </div>

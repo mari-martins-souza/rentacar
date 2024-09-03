@@ -4,7 +4,7 @@
         <div class="content">
             <h3>Modelo: {{ carro.modelo }}</h3>
             <img [src]="carro.imagem">
-            <p>Valor da diária: R$ {{ carro.precoPorDia }}</p>
+            <p>Valor da diária: R$ {{ carro.precoPorDia | dotToComma }}</p>
             <p>Ano: {{ carro.ano | dateTransform }}</p>
             <p>Tipo: {{ carro.tipoDoModelo }}</p>
             <p>Descrição do veículo: {{ carro.descricao }}</p>
