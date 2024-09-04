@@ -1,5 +1,5 @@
 button {
-    background: #ffc5c1;
+    background: #ffc219;
     color: #231b42;
     width: 110px;
     height: 35px;
@@ -13,6 +13,6 @@ button {
 }
 
 button:hover {
-    background: #aa6581;
+    background: #e60099;
     color: white;
 }

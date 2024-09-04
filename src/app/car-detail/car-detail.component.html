@@ -2,7 +2,13 @@
 <div class="detail-container">
     <div *ngFor="let carro of carrosLista" class="car-detail">
         <div class="content">
-            <h3>Modelo: {{ carro.modelo }}</h3>
+            <div class="icons-and-carmodel">
+                <h3>Modelo: {{ carro.modelo }}</h3>
+                <div class="icons">
+                    <img *ngIf="!isFavorite" (click)="favorite()" id="empty-hrt" src="../../assets/coracao-empty.png">
+                    <img *ngIf="isFavorite" (click)="unfavorite()" id="full-hrt" src="../../assets/coracao-full.png">
+                </div>
+            </div>
             <img [src]="carro.imagem">
             <p>Valor da diária: R$ {{ carro.precoPorDia | dotToComma }}</p>
             <p>Ano: {{ carro.ano | dateTransform }}</p>

@@ -19,6 +19,8 @@ import { DotToCommaPipe } from '../pipes/dot-to-comma.pipe';
 export class CarDetailComponent implements OnInit {
   carId: any = '';
   carrosLista: any = [];
+  isFavorite: boolean = false;
+  savedFavorites: any[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private carService: CarService) { }
 
@@ -28,7 +30,37 @@ export class CarDetailComponent implements OnInit {
 
     this.carService.listCar().subscribe((carro: any) => {
       this.carrosLista = carro.filter((carro: {id: any; }) => carro.id === this.carId);
+      this.isFavorite = this.savedFavorites.includes(this.carId);
     });
+
+    this.loadFavorites();
   };
+
+  loadFavorites() {
+    const favorites = localStorage.getItem('favorites');
+    this.savedFavorites = favorites ? JSON.parse(favorites) : [];
+  }
+
+  saveFavorites() {
+    localStorage.setItem('favorites', JSON.stringify(this.savedFavorites));
+  }
+
+  favorite() {
+    this.isFavorite = true;
+    if(!this.savedFavorites.includes(this.carId)) {
+      this.savedFavorites.push(this.carId);
+      this.saveFavorites();
+    }
+  }
+
+  unfavorite() {
+    this.isFavorite = false;
+    const index = this.savedFavorites.indexOf(this.carId);
+    if (index > -1) {
+      this.savedFavorites.splice(index, 1);
+      this.saveFavorites();
+    }
+    
+  }
 
 }
