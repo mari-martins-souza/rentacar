@@ -1,7 +1,12 @@
 <div class="card-container">
     <div *ngFor="let carro of carrosLista" class="car-card">
         <div class="card-content">
-            <h3>Modelo: {{ carro.modelo }}</h3>
+                <div class="icons">
+                    <img *ngIf="isFavorite(carro.id)" (click)="unfavorite(carro.id)" id="full-hrt" src="../../assets/coracao-full.png">
+                    <img *ngIf="!isFavorite(carro.id)" (click)="favorite(carro.id)" id="empty-hrt" src="../../assets/coracao-empty.png">
+                </div>
+                <h3>Modelo: {{ carro.modelo }}</h3>
+                
             <img [src]="carro.imagem">
             <p>Valor da diária: R$ {{ carro.precoPorDia | dotToComma }}</p>
             <p>Ano: {{ carro.ano | dateTransform }}</p>

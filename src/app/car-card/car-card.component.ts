@@ -16,14 +16,46 @@ import { DotToCommaPipe } from '../pipes/dot-to-comma.pipe';
   styleUrl: './car-card.component.css'
 })
 export class CarCardComponent implements OnInit {
-carrosLista: any = [];
+carrosLista: any[] = [];
+savedFavorites: any[] = [];
 
   constructor(private carService: CarService, private router: Router) { }
 
   ngOnInit() {
+
+    this.loadFavorites();
+
     this.carService.listCar().subscribe((carro: any) => {
       this.carrosLista = carro;
     })
+  }
+
+  loadFavorites() {
+    const favorites = localStorage.getItem('favorites');
+    this.savedFavorites = favorites ? JSON.parse(favorites) : [];
+  }
+
+  saveFavorites() {
+    localStorage.setItem('favorites', JSON.stringify(this.savedFavorites));
+  }
+
+  isFavorite(carId: any): boolean {
+    return this.savedFavorites.includes(carId);
+  }
+  
+  unfavorite(carId: any) {
+    const index = this.savedFavorites.indexOf(carId);
+    if (index > -1) {
+      this.savedFavorites.splice(index, 1);
+      this.saveFavorites();
+    }
+  }
+
+  favorite(carId: any) {
+    if(!this.savedFavorites.includes(carId)) {
+      this.savedFavorites.push(carId);
+      this.saveFavorites();
+    }
   }
 
   carDetail(id: string) {
