@@ -1,12 +1,16 @@
+<div class="search-area">
+    <input type="text" id="search" name="search" [(ngModel)]="searchTerm" placeholder="Busque por um modelo">
+    <button id="btn-search" (click)="search()">BUSCAR</button>
+    <button id="btn-clear" (click)="clearSearch()">LIMPAR</button>
+</div>
 <div class="card-container">
-    <div *ngFor="let carro of carrosLista" class="car-card">
+    <div *ngFor="let carro of carrosListaFiltrado" class="car-card">
         <div class="card-content">
                 <div class="icons">
                     <img *ngIf="isFavorite(carro.id)" (click)="unfavorite(carro.id)" id="full-hrt" src="../../assets/coracao-full.png">
                     <img *ngIf="!isFavorite(carro.id)" (click)="favorite(carro.id)" id="empty-hrt" src="../../assets/coracao-empty.png">
                 </div>
-                <h3>Modelo: {{ carro.modelo }}</h3>
-                
+                <h3>Modelo: {{ carro.modelo }}</h3>     
             <img [src]="carro.imagem">
             <p>Valor da diária: R$ {{ carro.precoPorDia | dotToComma }}</p>
             <p>Ano: {{ carro.ano | dateTransform }}</p>

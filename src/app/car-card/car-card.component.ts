@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { DateTransformPipe } from '../pipes/date-transform.pipe';
 import { Router, RouterModule } from '@angular/router';
 import { DotToCommaPipe } from '../pipes/dot-to-comma.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-car-card',
   standalone: true,
-  imports: [ButtonDetailComponent, HttpClientModule, CommonModule, DateTransformPipe, RouterModule, DotToCommaPipe], 
+  imports: [ButtonDetailComponent, HttpClientModule, CommonModule, DateTransformPipe, RouterModule, DotToCommaPipe, FormsModule], 
   providers: [CarService],
   templateUrl: './car-card.component.html',
   styleUrl: './car-card.component.css'
@@ -18,6 +19,8 @@ import { DotToCommaPipe } from '../pipes/dot-to-comma.pipe';
 export class CarCardComponent implements OnInit {
 carrosLista: any[] = [];
 savedFavorites: any[] = [];
+carrosListaFiltrado: any[] = [];
+searchTerm: string = '';
 
   constructor(private carService: CarService, private router: Router) { }
 
@@ -27,7 +30,23 @@ savedFavorites: any[] = [];
 
     this.carService.listCar().subscribe((carro: any) => {
       this.carrosLista = carro;
+      this.carrosListaFiltrado = carro;
     })
+  }
+
+  search() {
+    if (this.searchTerm) {
+      this.carrosListaFiltrado = this.carrosLista.filter((carro: { modelo: string; }) =>
+        carro.modelo.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.carrosListaFiltrado = this.carrosLista;
+    }
+  }
+
+  clearSearch() {
+    this.searchTerm = '';
+    this.carrosListaFiltrado = this.carrosLista;
   }
 
   loadFavorites() {
